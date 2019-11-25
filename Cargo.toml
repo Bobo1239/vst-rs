@@ -40,6 +40,9 @@ libloading = "0.5"
 [dev-dependencies]
 time = "0.1"
 rand = "0.7"
+cpal = "0.11"
+# Last crates.io release was years ago...
+midir = { git = "https://github.com/Boddlnagg/midir.git" }
 
 [[example]]
 name = "dimension_expander"
@@ -47,6 +50,10 @@ crate-type = ["cdylib"]
 
 [[example]]
 name = "simple_host"
+crate-type = ["bin"]
+
+[[example]]
+name = "midi_host"
 crate-type = ["bin"]
 
 [[example]]
