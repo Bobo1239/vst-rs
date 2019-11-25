@@ -44,9 +44,10 @@ impl SineSynth {
     ///
     /// [source]: http://www.midimountain.com/midi/midi_status.htm
     fn process_midi_event(&mut self, data: [u8; 3]) {
-        match data[0] {
-            128 => self.note_off(data[1]),
-            144 => self.note_on(data[1]),
+        match (data[0], data[2]) {
+            (128, _) => self.note_off(data[1]),
+            (144, 0) => self.note_off(data[1]),
+            (144, _) => self.note_on(data[1]),
             _ => (),
         }
     }
